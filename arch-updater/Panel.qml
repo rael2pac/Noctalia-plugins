@@ -233,18 +233,22 @@ Item {
                                         color: delegateRow.iconColor
                                     }
                                 }
-                                RowLayout {
+                                Item {
                                     Layout.preferredWidth: 0.4 * root.tableContentWidth
-                                    spacing: 0
+                                    Layout.fillHeight: true
                                     NText {
+                                        id: repoPrefix
                                         text: modelData.repo ? modelData.repo + "/" : ""
                                         pointSize: Style.fontSizeM
                                         color: delegateRow.repoColor
                                         elide: Text.ElideRight
                                         maximumLineCount: 1
+                                        anchors.verticalCenter: parent.verticalCenter
                                     }
                                     NText {
                                         text: modelData.name
+                                        anchors.left: repoPrefix.right
+                                        anchors.verticalCenter: parent.verticalCenter
                                         pointSize: Style.fontSizeM
                                         color: Color.mOnSurface
                                         elide: Text.ElideRight
