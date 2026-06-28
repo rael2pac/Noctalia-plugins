@@ -230,7 +230,7 @@ Item {
                                 Image {
                                     Layout.preferredWidth: Style.fontSizeL * 0.75
                                     Layout.preferredHeight: Style.fontSizeL * 0.75
-                                    source: pluginApi.pluginDir + "/icons/" + (modelData.source == "flatpak" ? "flatpak" : modelData.source == "system" ? "arch" : "aur") + ".svg"
+                                    source: pluginApi.pluginDir + "/icons/" + (modelData.source == "flatpak" ? "flatpak" : modelData.source == "system" ? "pacman" : "aur") + ".svg"
                                     sourceSize.width: width
                                     sourceSize.height: height
                                     fillMode: Image.PreserveAspectFit
