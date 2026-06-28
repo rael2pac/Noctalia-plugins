@@ -3,7 +3,7 @@
   "plugins": [
     {
       "id": "arch-updater",
-      "name": "Arch Updater",
+      "name": "Archlinux Update",
       "version": "2.1.10",
       "official": false,
       "author": "Ast",

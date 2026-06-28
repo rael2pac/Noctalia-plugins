@@ -15,7 +15,7 @@
             "repo": "Repository",
             "homepage": "Homepage"
         },
-        "title": "Arch Updater",
+        "title": "Archlinux Update",
         "name": "Package",
         "version": "Version",
         "refresh": "Refresh",
