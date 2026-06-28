@@ -225,7 +225,8 @@ Item {
 
                             delegate: RowLayout {
                                 required property var modelData
-                                readonly property color sourceColor: modelData.source == "flatpak" ? "#38bdf8" : modelData.source == "system" ? "#facc15" : "#fb923c"
+                                readonly property color sourceColor: modelData.source == "flatpak" ? "#38bdf8" : modelData.source == "system" ? "#86efac" : "#fb923c"
+                                readonly property color iconColor: modelData.source == "flatpak" ? "#38bdf8" : modelData.source == "system" ? "#facc15" : "#fb923c"
                                 width: tableView.width
                                 spacing: Style.marginS
 
@@ -242,7 +243,7 @@ Item {
                                     ColorOverlay {
                                         anchors.fill: srcIcon
                                         source: srcIcon
-                                        color: parent.parent.sourceColor
+                                        color: parent.parent.iconColor
                                     }
                                 }
                                 NText { // Name
