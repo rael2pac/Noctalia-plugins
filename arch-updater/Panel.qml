@@ -178,30 +178,33 @@ Item {
                         Layout.leftMargin: Style.marginS
                         spacing: Style.marginS
 
-                        NText {
-                            Layout.preferredWidth: 0.4 * root.tableContentWidth
-                            text: pluginApi?.tr("panel.name")
-                            pointSize: Style.fontSizeL
-                            font.weight: Font.Bold
-                            color: Color.mOnSurface
-                            horizontalAlignment: Text.AlignLeft
-                        }
-                        NText {
-                            Layout.preferredWidth: 0.3 * root.tableContentWidth
-                            text: pluginApi?.tr("panel.oldVer")
-                            pointSize: Style.fontSizeL
-                            font.weight: Font.Bold
-                            color: Color.mOnSurface
-                            horizontalAlignment: Text.AlignHCenter
-                        }
-                        NText {
-                            Layout.preferredWidth: 0.3 * root.tableContentWidth
-                            text: pluginApi?.tr("panel.newVer")
-                            pointSize: Style.fontSizeL
-                            font.weight: Font.Bold
-                            color: Color.mOnSurface
-                            horizontalAlignment: Text.AlignHCenter
-                        }
+                    Item {
+                        Layout.preferredWidth: Style.fontSizeL + Style.marginS
+                    }
+                    NText {
+                        Layout.preferredWidth: 0.35 * root.tableContentWidth
+                        text: pluginApi?.tr("panel.name")
+                        pointSize: Style.fontSizeL
+                        font.weight: Font.Bold
+                        color: Color.mOnSurface
+                        horizontalAlignment: Text.AlignLeft
+                    }
+                    NText {
+                        Layout.preferredWidth: 0.3 * root.tableContentWidth
+                        text: pluginApi?.tr("panel.oldVer")
+                        pointSize: Style.fontSizeL
+                        font.weight: Font.Bold
+                        color: Color.mOnSurface
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    NText {
+                        Layout.preferredWidth: 0.3 * root.tableContentWidth
+                        text: pluginApi?.tr("panel.newVer")
+                        pointSize: Style.fontSizeL
+                        font.weight: Font.Bold
+                        color: Color.mOnSurface
+                        horizontalAlignment: Text.AlignHCenter
+                    }
                     }
 
                     // Table
@@ -224,8 +227,16 @@ Item {
                                 width: tableView.width
                                 spacing: Style.marginS
 
+                                Image {
+                                    Layout.preferredWidth: Style.fontSizeL * 0.75
+                                    Layout.preferredHeight: Style.fontSizeL * 0.75
+                                    source: pluginApi.pluginDir + "/icons/" + (modelData.source == "flatpak" ? "flatpak" : modelData.source == "system" ? "arch" : "aur") + ".svg"
+                                    sourceSize.width: width
+                                    sourceSize.height: height
+                                    fillMode: Image.PreserveAspectFit
+                                }
                                 NText { // Name
-                                    Layout.preferredWidth: 0.4 * root.tableContentWidth
+                                    Layout.preferredWidth: 0.35 * root.tableContentWidth
                                     text: modelData.name
                                     pointSize: Style.fontSizeM
                                     color: (modelData.source == "flatpak") ? Color.mTertiary : (modelData.source == "system") ? Color.mSecondary : Color.mPrimary
