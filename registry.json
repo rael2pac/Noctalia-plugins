@@ -39,16 +39,5 @@
       "tags": ["Bar", "Panel", "Hardware"],
       "lastUpdated": "2026-06-28T00:00:00Z"
     },
-    {
-      "id": "nix-manager",
-      "name": "Nix Manager",
-      "version": "1.0.0",
-      "official": false,
-      "author": "Gemini CLI",
-      "description": "Atualização e limpeza do NixOS",
-      "repository": "https://github.com/rael2pac/Noctalia-plugins",
-      "tags": ["System", "Utility"],
-      "lastUpdated": "2026-06-28T00:00:00Z"
-    }
   ]
 }
