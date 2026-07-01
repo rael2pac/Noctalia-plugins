@@ -77,6 +77,10 @@
             "cleanupCmd": {
                 "text": "Cleanup Command",
                 "desc": "Command to clean the system (cache, orphans, logs, etc.)"
+            },
+            "cachePreserveList": {
+                "text": "Cache Preserve List",
+                "desc": "Space-separated folder names in ~/.cache to preserve during cleanup"
             }
         },
         "bar": {

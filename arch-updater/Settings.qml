@@ -21,6 +21,7 @@ ColumnLayout {
     property int refreshInterval: pluginApi.pluginSettings.refreshInterval || pluginApi.manifest.metadata.defaultSettings.refreshInterval
     property bool cleanupAfterUpdate: pluginApi.pluginSettings.cleanupAfterUpdate ?? pluginApi.manifest.metadata.defaultSettings.cleanupAfterUpdate
     property string cleanupCmd: pluginApi.pluginSettings.cleanupCmd || pluginApi.manifest.metadata.defaultSettings.cleanupCmd
+    property string cachePreserveList: pluginApi.pluginSettings.cachePreserveList ?? pluginApi.manifest.metadata.defaultSettings.cachePreserveList
 
     // Bar
     property bool noctalia: pluginApi.pluginSettings.noctalia ?? pluginApi.manifest.metadata.defaultSettings.noctalia
@@ -262,6 +263,18 @@ ColumnLayout {
                 onTextChanged: {
                     root.cleanupCmd = text
                     Logger.d("Arch Updater", "Cleanup command set to: " + root.cleanupCmd)
+                }
+            }
+
+            NTextInput { // Cache Preserve List
+                Layout.fillWidth: true
+                label: pluginApi.tr("settings.general.cachePreserveList.text")
+                description: pluginApi.tr("settings.general.cachePreserveList.desc")
+                placeholderText: pluginApi.manifest.metadata.defaultSettings.cachePreserveList
+                text: root.cachePreserveList
+                onTextChanged: {
+                    root.cachePreserveList = text
+                    Logger.d("Arch Updater", "Cache preserve list set to: " + root.cachePreserveList)
                 }
             }
             
@@ -602,6 +615,7 @@ ColumnLayout {
         pluginApi.pluginSettings.refreshInterval = root.refreshInterval
         pluginApi.pluginSettings.cleanupAfterUpdate = root.cleanupAfterUpdate
         pluginApi.pluginSettings.cleanupCmd = root.cleanupCmd
+        pluginApi.pluginSettings.cachePreserveList = root.cachePreserveList
 
         // Bar
         pluginApi.pluginSettings.noctalia = root.noctalia

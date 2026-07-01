@@ -366,7 +366,15 @@ Item {
                     if (pluginApi.pluginSettings.toast ?? pluginApi.manifest.metadata.defaultSettings.toast ?? true) {
                         ToastService.showNotice(pluginApi.tr("toast.cleanupRunning"))
                     }
-                    runCleanup.command = ["sh", "-c", pluginApi.pluginSettings.cleanupCmd || pluginApi.manifest.metadata.defaultSettings.cleanupCmd]
+                    var baseCleanupCmd = pluginApi.pluginSettings.cleanupCmd || pluginApi.manifest.metadata.defaultSettings.cleanupCmd
+                    var preserveList = pluginApi.pluginSettings.cachePreserveList || pluginApi.manifest.metadata.defaultSettings.cachePreserveList || ""
+                    var cacheCleanupCmd = ""
+                    if (preserveList) {
+                        var excludes = preserveList.split(/\s+/).map(function(name) { return '! -name "' + name + '"' }).join(" ")
+                        cacheCleanupCmd = 'find "$HOME/.cache" -mindepth 1 -maxdepth 1 ' + excludes + ' -exec rm -rf {} + 2>/dev/null || true'
+                    }
+                    var fullCleanupCmd = baseCleanupCmd + (cacheCleanupCmd ? "\n" + cacheCleanupCmd : "")
+                    runCleanup.command = ["sh", "-c", fullCleanupCmd]
                     runCleanup.running = true
                 } else {
                     refresh()

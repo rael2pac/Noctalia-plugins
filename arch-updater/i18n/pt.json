@@ -77,6 +77,10 @@
             "cleanupCmd": {
                 "text": "Comando de Limpeza",
                 "desc": "Comando para limpar o sistema (cache, órfãos, logs, etc.)"
+            },
+            "cachePreserveList": {
+                "text": "Pastas a Preservar no Cache",
+                "desc": "Nomes das pastas em ~/.cache para preservar durante a limpeza (separados por espaço)"
             }
         },
         "bar": {
